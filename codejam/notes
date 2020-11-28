@@ -1,0 +1,18 @@
+solutions are often not long! think of obvious and short approaches, with an elegant insight
+brute force for small test cases
+focus on getting 2 questions correctly
+
+dp - iterative vs recursive
+
+
+round 1a
+a - saw the main idea, but tried to solve the hard version of the problem...
+I tried solving "find the smallest word that satisfies the constraints"
+as opposed to construct a word that works, which is easily doable within constraints
+
+b - constructing a number -> think about binary tricks
+
+
+round 2
+a - rekt by floating precision -> either check for off-by-one around result or binary search for it
+also, whenever you need to find the (first) number within a range that satisfies a property, it's for sure bsearch
