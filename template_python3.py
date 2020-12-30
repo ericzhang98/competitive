@@ -5,6 +5,7 @@ import math
 import collections
 import heapq
 import itertools
+import functools
 import bisect
 #import sortedcontainers
 
