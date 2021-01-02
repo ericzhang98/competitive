@@ -1,4 +1,3 @@
-from __future__ import print_function
 import sys
 import math
 from collections import defaultdict
@@ -25,22 +24,19 @@ def solution(args):
 
     return res
 
-def matrix(height, width, type=int):
-    return [[type() for _ in range(w)] for _ in range(h)]
-
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
-t = int(raw_input()) # read a line with a single integer
-for case_num in xrange(1, t + 1):
+t = int(input()) # read a line with a single integer
+for case_num in range(1, t + 1):
 
     params = []
 
     # parsing
-    num = int(raw_input())
+    num = int(input())
     words = set()
     for n in range(num):
-        word = raw_input()
+        word = input()
         words.add(word)
 
     params.append(words)
