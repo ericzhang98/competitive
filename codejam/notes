@@ -1,18 +1,39 @@
 solutions are often not long! think of obvious and short approaches, with an elegant insight
-brute force for small test cases
+look at constraints, insights often from the constraints
+brute force for small test cases, try it out with pen and paper to see patterns too
 focus on getting 2 questions correctly
 
-dp - iterative vs recursive
-
+2020 ---
 
 round 1a
 a - saw the main idea, but tried to solve the hard version of the problem...
 I tried solving "find the smallest word that satisfies the constraints"
 as opposed to construct a word that works, which is easily doable within constraints
-
 b - constructing a number -> think about binary tricks
+c - bfs, simulation, clever linked list, hard af
+
+round 1b upsolve
+a - recursive, invariant
+d - bsearch
+c - invariant (sort of recursive too)
+
+round 1c
+a - bfs, simulation
+b - intuition / prob, clutch
+c - gcd/lcm, bsearch, greedy, hard af
 
 
 round 2
 a - rekt by floating precision -> either check for off-by-one around result or binary search for it
 also, whenever you need to find the (first) number within a range that satisfies a property, it's for sure bsearch
+
+recursion + invariant pops up a lot, think of this when there seem to be recursive or invariant structures
+bfs + simulation pops up a lot, think of this when there are transitions or steps
+
+
+considerations ---
+
+always look at constraints
+dp - iterative vs recursive
+pypy for speed
+floating point accuracy
