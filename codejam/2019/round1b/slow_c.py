@@ -32,69 +32,53 @@ def solution(N,O,C,D):
         return max(left, right)
 
     def subsolve(i):
-        # optimization
-        if C[i] + O < D[i]:
-            return 0
-
         # Li, Ri limits where max([C[Li]..C[Ri-1]]) == C[i]
-        lo, hi = 0, i
-        while lo < hi:
-            mi = (lo + hi) // 2
-            if mi == i or rmquery(RMQC, mi, i) < C[i]:
-                hi = mi
+        Li = i
+        for j in range(i-1,-1,-1):
+            if max(C[j:i]) >= C[i]:
+                break
             else:
-                lo = mi+1
-        Li = lo
-        lo, hi = i, N-1
-        while lo < hi:
-            mi = (lo + hi + 1) // 2
-            if rmquery(RMQC, i, mi+1) <= C[i]:
-                lo = mi
+                Li = j
+        Ri = i
+        for j in range(i+1,N+1):
+            if max(C[i:j]) > C[i]:
+                break
             else:
-                hi = mi-1
-        Ri = lo+1
+                Ri = j
 
         # Ai, Bi limits where max([D[Ai]..D[Bi-1]]) <= C[i] + O
-        lo, hi = Li, i+1
-        while lo < hi:
-            mi = (lo + hi) // 2
-            if rmquery(RMQD, mi, i+1) <= C[i] + O:
-                hi = mi
+        Ai = i
+        for j in range(i-1,Li-1,-1):
+            if max(D[j:i+1]) > C[i] + O:
+                break
             else:
-                lo = mi+1
-        Ai = lo
-        lo, hi = i, Ri
-        while lo < hi:
-            mi = (lo + hi + 1) // 2
-            if rmquery(RMQD, i, mi) <= C[i] + O:
-                lo = mi
+                Ai = j
+        Bi = i
+        for j in range(i+1,Ri+1):
+            if max(D[i:j]) > C[i] + O:
+                break
             else:
-                hi = mi-1
-        Bi = lo
+                Bi = j
 
         # Xi, Yi limits where max([D[Xi]..D[Yi-1]]) <= C[i] - O
-        lo, hi = Li, i+1
-        while lo < hi:
-            mi = (lo + hi) // 2
-            if rmquery(RMQD, mi, i+1) < C[i] - O:
-                hi = mi
+        Xi = i
+        for j in range(i-1,Li-1,-1):
+            if max(D[j:i+1]) >= C[i] - O:
+                break
             else:
-                lo = mi+1
-        Xi = lo
-        lo, hi = i, Ri
-        while lo < hi:
-            mi = (lo + hi + 1) // 2
-            if rmquery(RMQD, i, mi) < C[i] - O:
-                lo = mi
+                Xi = j
+        Yi = i
+        for j in range(i+1,Ri+1):
+            if max(D[i:j]) >= C[i] - O:
+                break
             else:
-                hi = mi-1
-        Yi = lo
+                Yi = j
 
         a = (i+1 - Ai) * (Bi - i)
         b = (i+1 - Xi) * (Yi - i)
         ans = a - b
 
-        #eprint(f"--i={i},Li={Li},Ri={Ri},Ai={Ai},Bi={Bi},Xi={Xi},Yi={Yi},a={a},b={b},ans={ans}")
+        eprint(f"--i={i},Li={Li},Ri={Ri},Ai={Ai},Bi={Bi},Xi={Xi},Yi={Yi},a={a},b={b},ans={ans}")
 
         return ans
 
@@ -110,3 +94,4 @@ for case_num in range(1, T + 1):
     D = list(map(int, input().split()))
     res = solution(N, O, C, D)
     print("Case #{}: {}".format(case_num, res))
+

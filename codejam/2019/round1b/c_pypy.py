@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 import copy
 import operator
@@ -103,10 +104,10 @@ def solution(N,O,C,D):
         ans += subsolve(i)
     return ans
 
-T = int(input()) # read num test cases
+T = int(raw_input()) # read num test cases
 for case_num in range(1, T + 1):
-    N, O = map(int, input().split())
-    C = list(map(int, input().split()))
-    D = list(map(int, input().split()))
+    N, O = map(int, raw_input().split())
+    C = list(map(int, raw_input().split()))
+    D = list(map(int, raw_input().split()))
     res = solution(N, O, C, D)
     print("Case #{}: {}".format(case_num, res))
