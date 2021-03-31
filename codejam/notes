@@ -32,12 +32,12 @@ bfs + simulation pops up a lot, think of this when there are transitions or step
 
 
 considerations ---
-
 always look at constraints
 dp - iterative vs recursive
 pypy for speed
 floating point accuracy
-
+sys.setrecursionlimit(1000000) on big dp problems if RE
+use raise Exception("") and assert to catch unhandled / impossible cases
 
 interactive problems ---
 `python3 interactive_runner.py python3 run_b.py 0 -- python3 b.py`
