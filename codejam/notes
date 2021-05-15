@@ -30,11 +30,21 @@ also, whenever you need to find the (first) number within a range that satisfies
 recursion + invariant pops up a lot, think of this when there seem to be recursive or invariant structures
 bfs + simulation pops up a lot, think of this when there are transitions or steps
 
+2021 ---
+round 1c
+a - easy, just need to be careful with edge cases, always ask "how could this go wrong?"
+b - bsearch, need to be clever on stuff to iterate on before bsearch
+c - greedy casework
 
 considerations ---
 always look at constraints
 dp - iterative vs recursive
-pypy for speed
+pypy for speed -- use `from __future__import print_function` and replace `input()` with `raw_input()` just copy:
+  ```
+  from __future__ import print_function
+  input = raw_input
+  ```
+  to the top of the file
 floating point accuracy
 sys.setrecursionlimit(1000000) on big dp problems if RE
 use raise Exception("") and assert to catch unhandled / impossible cases
