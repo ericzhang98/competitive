@@ -48,7 +48,7 @@ pypy for speed -- use `from __future__import print_function` and replace `input(
   ```
   to the top of the file
 floating point accuracy
-sys.setrecursionlimit(1000000) on big dp problems if RE
+sys.setrecursionlimit(1000000000) on big dp problems if RE
 use raise Exception("") and assert to catch unhandled / impossible cases
 
 interactive problems ---
