@@ -52,4 +52,4 @@ sys.setrecursionlimit(1000000000) on big dp problems if RE
 use raise Exception("") and assert to catch unhandled / impossible cases
 
 interactive problems ---
-`python3 interactive_runner.py python3 run_b.py 0 -- python3 b.py`
+`pypy3 interactive_runner.py pypy3 run_b.py 0 -- pypy3 b.py`
