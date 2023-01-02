@@ -38,6 +38,9 @@ a - easy, just need to be careful with edge cases, always ask "how could this go
 b - bsearch, need to be clever on stuff to iterate on before bsearch
 c - greedy casework
 
+2022 ---
+c - backtracking with pruning is faster than checking every permutation
+
 considerations ---
 always look at constraints
 dp - iterative vs recursive
