@@ -10,19 +10,26 @@ import bisect
 import random
 
 sys.setrecursionlimit(1000000000)
-# codejam pypy only has 5311 recursion limit and does not change
 
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
-def solution("params"):
-    print("params")
-    # TODO
-    return 0
+def solution(A, B):
+    p1, p2 = 0, 0
+    ans = 0
+    while p2 < len(B):
+        if p1 < len(A) and B[p2] == A[p1]:
+            p1 += 1
+        else:
+            ans += 1
+        p2 += 1
+    if p1 != len(A):
+        return "IMPOSSIBLE"
+    return ans
 
 T = int(input()) # read num test cases
 for case_num in range(1, T + 1):
-    # process stdin with input()
-    # TODO
-    res = solution("params")
+    I = input()
+    P = input()
+    res = solution(I, P)
     print("Case #{}: {}".format(case_num, res))
